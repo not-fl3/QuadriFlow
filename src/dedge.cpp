@@ -16,8 +16,9 @@ inline int dedge_prev(int e, int deg) { return (e % deg == 0u) ? e + (deg - 1) :
 
 inline bool atomicCompareAndExchange(volatile int* v, uint32_t newValue, int oldValue) {
 #if defined(_WIN32)
-    return _InterlockedCompareExchange(reinterpret_cast<volatile long*>(v), (long)newValue,
-                                       (long)oldValue) == (long)oldValue;
+    return __sync_bool_compare_and_swap(v, oldValue, newValue);
+    // return _InterlockedCompareExchange(reinterpret_cast<volatile long*>(v), (long)newValue,
+    //                                    (long)oldValue) == (long)oldValue;
 #else
     return __sync_bool_compare_and_swap(v, oldValue, newValue);
 #endif

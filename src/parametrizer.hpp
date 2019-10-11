@@ -75,7 +75,7 @@ class Parametrizer {
                                std::vector<int>& face, std::vector<DEdge>& edge_values,
                                std::vector<Vector3i>& F2E, std::vector<Vector2i>& E2F,
                                std::vector<Vector2i>& EdgeDiff, std::vector<Vector3i>& FQ);
-    void OutputMesh(const char* obj_name);
+    std::string OutputMesh();
 
     std::map<int, int> singularities;  // map faceid to valence (1 (valence=3) or 3(valence=5))
     std::map<int, Vector2i> pos_sing;

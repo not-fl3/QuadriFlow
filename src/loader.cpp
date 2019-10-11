@@ -3,7 +3,7 @@
 //  Loop
 //
 //  Created by Jingwei on 10/22/17.
-//  Copyright © 2017 Jingwei. All rights reserved.
+//  Copyright ï¿½ 2017 Jingwei. All rights reserved.
 //
 
 #include "loader.hpp"
@@ -80,7 +80,9 @@ void load(const char* filename, MatrixXd& V, MatrixXi& F)
 
 	typedef std::unordered_map<obj_vertex, uint32_t, obj_vertexHash> VertexMap;
 
-	std::ifstream is(filename);
+	std::string input_data(filename);
+
+	std::stringstream is(input_data);
 
 	std::vector<Vector3d>   positions;
 	//std::vector<Vector2d>   texcoords;

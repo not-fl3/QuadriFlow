@@ -598,8 +598,8 @@ void Parametrizer::FixValence()
     return;
 }
 
-void Parametrizer::OutputMesh(const char* obj_name) {
-    std::ofstream os(obj_name);
+std::string Parametrizer::OutputMesh() {
+    std::ostringstream os;
     for (int i = 0; i < O_compact.size(); ++i) {
         auto t = O_compact[i] * this->normalize_scale + this->normalize_offset;
         os << "v " << t[0] << " " << t[1] << " " << t[2] << "\n";
@@ -609,7 +609,7 @@ void Parametrizer::OutputMesh(const char* obj_name) {
         << " " << F_compact[i][2]+1 << " " << F_compact[i][3]+1
         << "\n";
     }
-    os.close();
+    return os.str();
 }
 
 } // namespace qflow

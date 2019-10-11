@@ -122,7 +122,7 @@ set(
     src/loader.hpp
     src/localsat.cpp
     src/localsat.hpp
-    src/main.cpp
+    src/c_api.cpp
     src/merge-vertex.cpp
     src/merge-vertex.hpp
     src/optimizer.cpp
@@ -139,8 +139,9 @@ set(
     src/subdivide.hpp
 )
 
-add_executable(
+add_library(
     quadriflow
+    SHARED
     ${quadriflow_SRC}
 )
 
